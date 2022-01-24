@@ -1,0 +1,19 @@
+{
+  "name": "ee-objects/controllers",
+  "description": "Provides an abstraction to creating Control Panel Controllers and Routes",
+  "require": {
+    "php": ">=7.1",
+    "ee-objects/core": "^0.1"
+  },
+  "prefer-stable": true,
+  "authors": [{
+    "name": "Eric Lamb",
+    "email": "eric@mithra62.com"
+  }],
+  "autoload": {
+    "psr-4": {
+      "EeObjects\\": "src"
+    }
+  },
+  "license": "MIT"
+}
