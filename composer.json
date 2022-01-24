@@ -3,7 +3,7 @@
   "description": "Provides an abstraction to creating Control Panel Controllers and Routes",
   "require": {
     "php": ">=7.1",
-    "ee-objects/core": "^0.1"
+    "ee-objects/core": "^0.2"
   },
   "prefer-stable": true,
   "authors": [{
