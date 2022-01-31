@@ -66,8 +66,8 @@ class Cp extends Controller
             }
         }
 
-        if (!empty($params['1'])) {
-            $this->id = (int)$params['1'];
+        if (isset($params['1']) && $params['1'] != '') {
+            $this->id = $params['1'];
         }
 
         return $this;
