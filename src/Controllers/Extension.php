@@ -8,8 +8,6 @@ use EeObjects\Exceptions\ControllerException;
 
 class Extension extends Controller
 {
-    protected $route_namespace = 'EeObjects\Addon\Controllers';
-
     /**
      * @param $method
      * @param false $action
@@ -22,7 +20,7 @@ class Extension extends Controller
             throw new ControllerException("Your Controller Namespace isn't seutp yet!");
         }
 
-        $object = '\\'.$this->getRouteNamespace().'\\Extensions\\';
+        $object = '\\'.$this->getRouteNamespace().'\\Extension\\';
         $object .= 'Routes\\'. Str::studly($method);
 
         return $object;
