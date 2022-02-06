@@ -85,8 +85,15 @@ class Cp extends Controller
         }
 
         $object = '\\'.$this->getRouteNamespace().'\\Cp\\Routes\\' . Str::studly($domain);
+
         if ($this->action) {
-            $object .= '\\' . Str::studly($this->action);
+            $stub = '\\' . Str::studly($this->action);
+            if(class_exists($object.$stub)) {
+                $object = $object.$stub;
+            } else {
+                $this->id = $this->action;
+                $this->action = null;
+            }
         }
 
         return $object;
