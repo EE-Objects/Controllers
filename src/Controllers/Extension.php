@@ -26,6 +26,12 @@ class Extension extends Controller
         return $object;
     }
 
+    /**
+     * @param $method
+     * @param $params
+     * @return mixed
+     * @throws ControllerException
+     */
     public function __call($method, $params)
     {
         $object = $this->buildObject($method);
@@ -33,7 +39,9 @@ class Extension extends Controller
 
             $controller = new $object();
             if ($controller instanceof AbstractRoute) {
-                return $controller->process();
+                if(method_exists($controller, 'process')) {
+                    return call_user_func_array([$controller, 'process'], $params);
+                }
             }
         }
 
