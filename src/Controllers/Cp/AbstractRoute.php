@@ -34,9 +34,20 @@ abstract class AbstractRoute extends CoreAbstractRoute
      * @var int
      */
     public $per_page = 25;
+
+    /**
+     * @var string
+     */
     protected $base_url = '';
 
+    /**
+     * @var bool
+     */
     protected $active_sidebar = false;
+
+    /**
+     * @var array
+     */
     protected $sidebar_data = [];
 
     public function __construct()
@@ -159,17 +170,25 @@ abstract class AbstractRoute extends CoreAbstractRoute
         ];
     }
 
-    protected function getRoutePath($id = '')
+    /**
+     * @param string $id
+     * @return string
+     * @throws RouteException
+     */
+    protected function getRoutePath($id = ''): string
     {
         if ($this->route_path == '')
         {
             throw new RouteException("Your route_path property isn't setup in your Route object!");
         }
 
-        return $this->route_path. ($id ? '/'.$id : '');
+        return $this->route_path. ($id !== false && $id != '' ? '/'.$id : '');
     }
 
-    protected function generateSidebar()
+    /**
+     * @throws RouteException
+     */
+    protected function generateSidebar(): void
     {
         $this->sidebar = ee('CP/Sidebar')->make();
         $active = false;
