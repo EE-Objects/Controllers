@@ -24,7 +24,7 @@ class Cp extends Controller
      * @return mixed
      * @throws ControllerException
      */
-    protected function process($domain)
+    protected function process($domain): ? Cp\AbstractRoute
     {
         $object = $this->buildObject($domain);
         if (class_exists($object)) {

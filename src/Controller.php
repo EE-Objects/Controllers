@@ -23,7 +23,7 @@ class Controller
     /**
      * @return string
      */
-    public function getRouteNamespace()
+    public function getRouteNamespace(): string
     {
         return $this->route_namespace;
     }
