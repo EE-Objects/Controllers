@@ -20,8 +20,7 @@ class Cp extends Controller
 
     /**
      * @param $domain
-     * @param $params
-     * @return mixed
+     * @return Cp\AbstractRoute|null
      * @throws ControllerException
      */
     protected function process($domain): ? Cp\AbstractRoute
@@ -33,6 +32,8 @@ class Cp extends Controller
                 return $controller->process($this->id);
             }
         }
+
+        return null;
     }
 
     /**
